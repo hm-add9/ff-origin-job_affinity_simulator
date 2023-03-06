@@ -425,11 +425,12 @@
 				<button id="result">結果を表示</button>
 				<input type="radio" name="filter_job" value="all">すべてのジョブを表示
 				<input type="radio" name="filter_job" value="filter" checked>選択ジョブのみ表示
+				<span style="margin-left: 20px;">各適性クリックでマーキングON/OFFできます（設定にも保存されます）</span>
 				<hr>
 				<table id="result">
 					<tr id="header">
 						<td>ジョブ</td>
-						<td  val="50">120%</td>
+						<td  val="50">50%/120%</td>
 						<td val="250">250%</td>
 						<td val="400">400%</td>
 						<td val="600">600%</td>
@@ -521,15 +522,15 @@
 					<tr job="berderker">
 						<td><div id="affinity_name">バーサーカー</td>
 						<td><div id="affinity_name">ブレイクヒールボーナス</div>ダメージを与えると基本威力の6.0/10.0％ブレイク回復</td>
-						<td recommendation="on"><div id="affinity_name">野生の目覚め</div>瀕死時、プロテスとシェルの効果が発動<br>①解除時の持続時間減少<br>②白魔法と重複できない</td>
+						<td marking="on"><div id="affinity_name">野生の目覚め</div>瀕死時、プロテスとシェルの効果が発動<br>①解除時の持続時間減少<br>②白魔法と重複できない</td>
 						<td><div id="affinity_name">内なる本能</div>ライトブリンガーの効果中、MPが秒間10回復<br>③MP回復量増加</td>
-						<td recommendation="on"><div id="affinity_name">戦いを求めし猛者の記憶</div>ソウルバーストするとライトブリンガーの効果発動</td>
+						<td marking="on"><div id="affinity_name">戦いを求めし猛者の記憶</div>ソウルバーストするとライトブリンガーの効果発動</td>
 					</tr>
 					<tr job="thief">
 						<td><div id="affinity_name">シーフ</td>
 						<td><div id="affinity_name">テイカーボーナス</div>インスタントアビリティの与ダメージ量が4.2/7.0%増加<br>③効果量増加</td>
 						<td><div id="affinity_name">幸運を運ぶ羽根</div>ステータス補正がある全てのアビリティで、「幸運」が適用</td>
-						<td recommendation="on"><div id="affinity_name">トレジャーハンター</div>レアリティの高い装備を入手しやすくなる<br>①仲間が発動しても有効</td>
+						<td marking="on"><div id="affinity_name">トレジャーハンター</div>レアリティの高い装備を入手しやすくなる<br>①仲間が発動しても有効</td>
 						<td><div id="affinity_name">盗技極めし青光の記憶</div>ソウルシールド成功時に20段階まで幸運増加</td>
 					</tr>
 					<tr job="monk">
@@ -541,7 +542,7 @@
 					</tr>
 					<tr job="white">
 						<td><div id="affinity_name">白魔道士</td>
-						<td recommendation="on"><div id="affinity_name">グッドタイムボーナス</div>自身を強化する効果の効果時間が7.5/12.5%延長</td>
+						<td marking="on"><div id="affinity_name">グッドタイムボーナス</div>自身を強化する効果の効果時間が7.5/12.5%延長</td>
 						<td><div id="affinity_name">生を望みし祈り</div>ステータス補正がある全てのアビリティで、「精神」が適用</td>
 						<td><div id="affinity_name">オートリレイズ</div>死亡時、一度だけHP30％で復活</div>復活後にキューブに触れると再度付与</td>
 						<td><div id="affinity_name">慈愛の心もつ乙女の記憶</div>ソウルシールド成功時に20段階まで精神増加</td>
@@ -550,14 +551,14 @@
 						<td><div id="affinity_name">黒魔道士</td>
 						<td><div id="affinity_name">マジックアタックボーナス</div>魔法属性の与ブレイク量が6.3/10.5%増加</td>
 						<td><div id="affinity_name">死を望みし祈り</div>ステータス補正がある全てのアビリティで、「知性」が適用</td>
-						<td recommendation="on"><div id="affinity_name">ライオットマジック</div>魔法属性ダメージを与えると基本威力の約2％分MP上限増加</td>
+						<td marking="on"><div id="affinity_name">ライオットマジック</div>魔法属性ダメージを与えると基本威力の約2％分MP上限増加</td>
 						<td><div id="affinity_name">命の意味知る黒き傀儡の記憶</div>ソウルシールド成功時に20段階まで知性増加</td>
 					</tr>
 					<tr job="red">
 						<td><div id="affinity_name">赤魔道士</td>
 						<td><div id="affinity_name">アタックアスピルボーナス</div>通常攻撃のMP回復量が6.8/11.3%増加</td>
-						<td recommendation="on"><div id="affinity_name">ファストチャージ</div>溜めと詠唱の速度が50％上昇</td>
-						<td recommendation="on"><div id="affinity_name">カラミティマジック</div>敵を状態異常にしたとき、MP上限40増加し、MP40回復</td>
+						<td marking="on"><div id="affinity_name">ファストチャージ</div>溜めと詠唱の速度が50％上昇</td>
+						<td marking="on"><div id="affinity_name">カラミティマジック</div>敵を状態異常にしたとき、MP上限40増加し、MP40回復</td>
 						<td><div id="affinity_name">紅蓮に燃ゆる暁光の記憶</div>魔法属性与ダメージの累積で、3段階まで次のアビリティの物理属性ダメージ増加<br>③効果量増加</td>
 					</tr>
 					<tr job="doragon">
@@ -572,13 +573,13 @@
 						<td><div id="affinity_name">アビリティセーブボーナス</div>アクションアビリティのMP消費が6.0/10.0%減少</td>
 						<td><div id="affinity_name">継続は力なり</div>チェインキャンセルすると10秒間与ダメージ量増加<br>②効果時間減少</td>
 						<td><div id="affinity_name">心眼</div>ジャストガード成功時、次のアビリティがクリティカル</td>
-						<td recommendation="on"><div id="affinity_name">友との約束果たす古兵の記憶</div>コンボアビリティ効果の発動時に、ジャストガード成功時の効果発動</td>
+						<td marking="on"><div id="affinity_name">友との約束果たす古兵の記憶</div>コンボアビリティ効果の発動時に、ジャストガード成功時の効果発動</td>
 					</tr>
 					<tr job="illusion">
 						<td><div id="affinity_name">幻術士</td>
 						<td><div id="affinity_name">ソウルシールドMPボーナス</div>ソウルシールド成功時、仲間のMPも回復<br>②MP回復量増加</td>
 						<td><div id="affinity_name">薬学の心得</div>ポーション使用時、状態異常も回復<br>③弱体効果も回復</td>
-						<td recommendation="on"><div id="affinity_name">クリアマインド</div>HP最大時にMPが徐々に回復</td>
+						<td marking="on"><div id="affinity_name">クリアマインド</div>HP最大時にMPが徐々に回復</td>
 						<td><div id="affinity_name">精霊と対話する柘榴石の記憶</div>ソウルシールド成功時にブレイク回復</td>
 					</tr>
 					<tr job="hunter">
@@ -592,14 +593,14 @@
 						<td><div id="affinity_name">暗黒騎士</td>
 						<td><div id="affinity_name">リベンジボーナス</div>瀕死状態のときに与ダメージ量が9.0/15.0%増加<br>①効果量減少</td>
 						<td><div id="affinity_name">叛逆の狼煙</div>敵に狙われているとき、与ダメージ量15％増加</td>
-						<td recommendation="on"><div id="affinity_name">ラストリゾート</div>瀕死時に発動する全ての効果を常時発動</td>
+						<td marking="on"><div id="affinity_name">ラストリゾート</div>瀕死時に発動する全ての効果を常時発動</td>
 						<td><div id="affinity_name">力を渇望する騎士の記憶</div>通常攻撃ヒットで増加するMPに応じてHP回復</td>
 					</tr>
 					<tr job="paladin">
 						<td><div id="affinity_name">パラディン</td>
 						<td><div id="affinity_name">ハイボルテージボーナス</div>HP最大時に与ブレイク量が6.8/11.3%増加</td>
 						<td><div id="affinity_name">光もたらす者</div>ライトブリンガーの効果中、2秒ごとにHP3％回復<br>③HP回復量増加</td>
-						<td recommendation="on"><div id="affinity_name">破邪の光</div>全ての状態異常を無効化</td>
+						<td marking="on"><div id="affinity_name">破邪の光</div>全ての状態異常を無効化</td>
 						<td><div id="affinity_name">試練を超えた聖騎士の記憶</div>ソウルシールド成功時に20段階まで最大HP増加</td>
 					</tr>
 					<tr job="ninja">
@@ -620,7 +621,7 @@
 						<td><div id="affinity_name">解放者</td>
 						<td><div id="affinity_name">ジャストガードボーナス</div>ジャストガードの猶予時間が25.0/25.0%延長</td>
 						<td><div id="affinity_name">魂の解放</div>自身へのHP回復効果30％増加</td>
-						<td recommendation="on"><div id="affinity_name">英雄の導き</div>ポーションの対象が味方全員<br>③戦闘不能の仲間も回復</td>
+						<td marking="on"><div id="affinity_name">英雄の導き</div>ポーションの対象が味方全員<br>③戦闘不能の仲間も回復</td>
 						<td><div id="affinity_name">神に抗いし一閃の記憶</div>「力・素早さ・体力・知性・精神・幸運」に応じて仲間のステータス増加</td>
 					</tr>
 					<tr job="breaker">

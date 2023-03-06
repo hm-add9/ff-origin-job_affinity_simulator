@@ -11,12 +11,13 @@ $(document).ready(function() {
         loadSetting();
     });
 
-    // setting save load
+    // setting save
     $('div#save_setting_area').on('click', 'button#save', function(event) {
         var saveName = $('div#save_setting_area [name="save_key"]').val();
         saveSetting(saveName);
         createLoadButton();
     });
+    // setting load
     $('div#save_setting_area #load_setting_area').on('click', '#load', function(event) {
         var target = $(event.target);
         loadSetting(target.attr('save_name'));
@@ -24,30 +25,42 @@ $(document).ready(function() {
         displayOnAllJobByCheckbox();
         result();
     });
+    // setting delete
     $('div#save_setting_area #load_setting_area').on('click', '#delete', function(event) {
         var target = $(event.target);
         deleteSetting(target.prev().attr('save_name'));
         createLoadButton();
     });
 
-    
+    // display all job -on
     $('div#job_display_switch_area').on('click', 'button#all_on', function(event) {
         $('#job_display_switch_area [id="disp_switch"]').prop('checked', true);
         $('table#value_input td[job]').show();
         $('table#result tr[job]').show();
     });
+    // display all job -off
     $('div#job_display_switch_area').on('click', 'button#all_off', function(event) {
         $('#job_display_switch_area [id="disp_switch"]').prop('checked', false);
         $('table#value_input td[job]').hide();
         $('table#result tr[job]').hide();
     });
+    // check display job
+    $('#job_display_switch_area').on('change', '[id="disp_switch"]', function(event) {
+        var target = $(event.target);
+        var job = target.attr('job');
+        controlDisplayJob(job, target.prop('checked'));
+    });
 
-
+    // clear all value
     $('div#value_input_area').on('click', 'button#clear', function(event) {
         $('table#value_input input').val('');
         $('table#value_input tr:nth-child(n+2) [id="set_num"]').html('0');
     });
-
+    // summary
+    $('table#value_input').on('blur', 'input', function(event) {
+        summaryValue();
+    });
+    // set value to specify
     $('div#value_input_area').on('click', 'button#value_onoff', function(event) {
         var target = $(event.target);
         var inputElement = target.prev();
@@ -59,23 +72,23 @@ $(document).ready(function() {
         summaryValue();
     });
 
-    $('#job_display_switch_area').on('change', '[id="disp_switch"]', function(event) {
-        var target = $(event.target);
-        var job = target.attr('job');
-        controlDisplayJob(job, target.prop('checked'));
-    });
-
-    $('table#value_input').on('blur', 'input', function(event) {
-        summaryValue();
-    });
-
+    // toggle display job-affinitys of all or selected job only
     $('div#result_area').on('change', '[name="filter_job"]', function(event) {
         var target = $(this);
         filterDisplayResultJob(target.val());
     });
-
+    // result
     $('div#result_area').on('click', '[id="result"]', function(event) {
         result();
+    });
+    // toggle affinity marking
+    $('div#result_area').on('click', 'table#result tr:nth-child(n+2) td:nth-child(n+2)', function(event) {
+        var target = $(this);
+        if (target.attr('marking') == 'on') {
+            target.attr('marking', 'off');
+        } else {
+            target.attr('marking', 'on');
+        }
     });
 
     createLoadButton();
@@ -84,8 +97,9 @@ $(document).ready(function() {
     result();
 });
 
+
 function result() {
-    $('table#value_input tr#summary input').each(function(val, index, ar) {
+    $('table#value_input tr#summary input').each(function(index, element) {
         var target = $(this);
         var job = target.attr('job');
         var value = $('table#value_input tr#summary input[job="' + job + '"]').val();
@@ -97,7 +111,7 @@ function filterDisplayResultJob(selectValue) {
     if (selectValue == 'all') {
         $('table#result tr[job]').show();
     } else {
-        $('div#job_display_switch_area input').each(function(val, index, ar) {
+        $('div#job_display_switch_area input').each(function(index, element) {
             var target = $(this);
             var job = target.attr('job');
             if (!target.prop('checked')) {
@@ -132,7 +146,7 @@ function cahngeJobAvailable(job, value) {
 
 function displayOnAllJobByCheckbox() {
 
-    $('div#job_display_switch_area input[job]').each(function(val, index, ar) {
+    $('div#job_display_switch_area input[job]').each(function(index, element) {
         var target = $(this);
         var job = target.attr('job');
         var displayOnFlg = target.prop('checked');
@@ -153,10 +167,10 @@ function controlDisplayJob(job, displayOnFlg) {
 
 function summaryValue() {
 
-    $('table#value_input tr#header td').each(function(val, index, ar) {
+    $('table#value_input tr#header td').each(function(index, element) {
         var job = $(this).attr('job');
         var sum = 0;
-        $('table#value_input tr#value input[job="' + job + '"]').each(function(val, index, ar) {
+        $('table#value_input tr#value input[job="' + job + '"]').each(function(index, element) {
             var value = $(this).val();
             if (value && !value.match(/[^0-9]/)) {
                 sum += parseInt(value, 10);
@@ -166,7 +180,7 @@ function summaryValue() {
     });
 
     // 入力されている textbox にスタイルを適用
-    $('table#value_input input[job]').each(function(val, index, ar) {
+    $('table#value_input input[job]').each(function(index, element) {
         var target = $(this);
         if (target.val()) {
             target.attr('inputed', 'on');
@@ -180,11 +194,11 @@ function summaryValue() {
 
 function countSetNum() {
     
-    $('table#value_input tr').each(function(val, index, ar) {
+    $('table#value_input tr').each(function(index, element) {
         var target = $(this);
         if (target.attr('id') == 'value') {
             var setNum = 0;
-            target.find('input[job]').each(function(val, index, ar) {
+            target.find('input[job]').each(function(index, element) {
                 if ($(this).val()) {
                     setNum++;
                 }
@@ -204,7 +218,7 @@ function saveSetting(saveName) {
     }
 
     var displayJobs = {};
-    $('div#job_display_switch_area input').each(function(val, index, ar) {
+    $('div#job_display_switch_area input').each(function(index, element) {
         var target = $(this);
         var job = $(this).attr('job');
         var onoff = target.prop("checked");
@@ -213,11 +227,11 @@ function saveSetting(saveName) {
     });
 
     var jobValues = {};
-    $('table#value_input tr').each(function(val, index, ar) {
+    $('table#value_input tr').each(function(index, element) {
         var target = $(this);
         var parts = target.attr('parts');
         if (parts) {
-            target.find('td input').each(function(val, index, ar) {
+            target.find('td input').each(function(index, element) {
                 var input = $(this);
                 var job = input.attr('job');
                 var value = input.val();
@@ -228,6 +242,20 @@ function saveSetting(saveName) {
                 jobValues[job][parts] = value;
             });
         }
+    });
+
+    var affinityMarkings = [];
+    $('table#result td[marking="on"]').each(function(index, element) {  // loop tr
+        $(this).each(function(index, element) { // loop td
+            var target = $(this);
+            if (target.attr('marking') == 'on') {
+                affinityMarkings.push({
+                    // trPos: trPos,
+                    // tdPos: tdPos,
+                    name: target.children('#affinity_name').text()
+                });
+            }
+        });
     });
 
     var settingJson = localStorage.getItem('setting');
@@ -244,7 +272,8 @@ function saveSetting(saveName) {
     
     setting[saveName] = {
         displayJobs: displayJobs,
-        jobValues: jobValues
+        jobValues: jobValues,
+        affinityMarkings: affinityMarkings
     };
 
     localStorage.setItem('setting', JSON.stringify({
@@ -278,6 +307,16 @@ function loadSetting(saveName) {
             }
         }
     }
+
+    if(setting.affinityMarkings) {
+        $('[marking="on"]').attr('marking', 'off');
+        for (job in setting.affinityMarkings) {
+            var affinityName = setting.affinityMarkings[job].name;
+            $(':contains("' + affinityName + '")').parents('td').attr('marking', 'on');
+        }
+    }
+
+    $('#save_setting_area [name="save_key"]').val(saveName);
 
 }
 

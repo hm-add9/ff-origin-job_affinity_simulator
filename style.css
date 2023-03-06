@@ -118,14 +118,23 @@ table#result tr:nth-child(n+2) td:nth-child(n+2) {
 	max-width: 300px;
 	height: 80px;
 	vertical-align: top;
+	cursor: pointer;
+}
+table#result tr:nth-child(n+2) td:nth-child(n+2):hover {
+    background-color: rgb(236, 245, 153);
 }
 table#result tr td:nth-child(n+2) #affinity_name {
 	color: white;
     background-color: black;
 }
-
-
-
-td[recommendation="on"] {
+table#result tr:nth-child(n+2) td:nth-child(n+2)[marking="on"] {
 	color: red;
 }
+table#result tr:nth-child(n+2) td:nth-child(n+2)[marking="on"] #affinity_name {
+	color: white;
+    background-color: red;
+}
+
+
+
+
