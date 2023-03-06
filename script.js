@@ -1,6 +1,7 @@
 
 $(document).ready(function() {
     
+    // テスト用
     $('body').on('click', 'button#test1', function(event) {
         console.log('test1');
         saveSetting();
@@ -9,6 +10,26 @@ $(document).ready(function() {
         console.log('test2');
         loadSetting();
     });
+
+    // setting save load
+    $('div#save_setting_area').on('click', 'button#save', function(event) {
+        var saveName = $('div#save_setting_area [name="save_key"]').val();
+        saveSetting(saveName);
+        createLoadButton();
+    });
+    $('div#save_setting_area #load_setting_area').on('click', '#load', function(event) {
+        var target = $(event.target);
+        loadSetting(target.attr('save_name'));
+        summaryValue();
+        displayOnAllJobByCheckbox();
+        result();
+    });
+    $('div#save_setting_area #load_setting_area').on('click', '#delete', function(event) {
+        var target = $(event.target);
+        deleteSetting(target.prev().attr('save_name'));
+        createLoadButton();
+    });
+
     
     $('div#job_display_switch_area').on('click', 'button#all_on', function(event) {
         $('#job_display_switch_area [id="disp_switch"]').prop('checked', true);
@@ -21,23 +42,21 @@ $(document).ready(function() {
         $('table#result tr[job]').hide();
     });
 
-    $('div#value_input_area').on('click', 'button#save', function(event) {
-        var saveName = $('div#value_input_area [name="save_key"]').val();
-        saveSetting(saveName);
-    });
-
-    $('div#value_input_area').on('click', '#load_setting', function(event) {
-        var target = $(event.target);
-        loadSetting(target.attr('save_name'));
-        summaryValue();
-        displayOnAllJobByCheckbox();
-        result();
-    });
-   
 
     $('div#value_input_area').on('click', 'button#clear', function(event) {
         $('table#value_input input').val('');
         $('table#value_input tr:nth-child(n+2) [id="set_num"]').html('0');
+    });
+
+    $('div#value_input_area').on('click', 'button#value_onoff', function(event) {
+        var target = $(event.target);
+        var inputElement = target.prev();
+        if (inputElement.val()) {
+            inputElement.val('');
+        } else {
+            inputElement.val('200');
+        }
+        summaryValue();
     });
 
     $('#job_display_switch_area').on('change', '[id="disp_switch"]', function(event) {
@@ -145,7 +164,16 @@ function summaryValue() {
         });
         $('table#value_input tr#summary input[job="' + job + '"]').val(sum);
     });
-    // var target = $('table#value_input tr#value input[job="' job ' "]');
+
+    // 入力されている textbox にスタイルを適用
+    $('table#value_input input[job]').each(function(val, index, ar) {
+        var target = $(this);
+        if (target.val()) {
+            target.attr('inputed', 'on');
+        } else {
+            target.attr('inputed', 'off');
+        }
+    });
 
     countSetNum();
 }
@@ -253,16 +281,35 @@ function loadSetting(saveName) {
 
 }
 
-function createLoadButton() {
-    var setting = getStorageSetting();;
+function deleteSetting(saveName) {
+
+    var setting = getStorageSetting();
     if (!setting) {
         return;
     }
 
+    delete setting[saveName];
+
+    localStorage.setItem('setting', JSON.stringify({
+        setting
+    }));
+}
+
+function createLoadButton() {
+    var setting = getStorageSetting();
+    if (!setting) {
+        return;
+    }
+
+    $('div#save_setting_area #load_setting_area').empty();
     for (saveName in setting) {
-        $('div#value_input_area #load_setting_area').append(
-            $('<button id="load_setting" save_name = "' + saveName + '">' + saveName + '</button>')
-        );
+        $('div#save_setting_area #load_setting_area')
+            .append($(
+                '<div id="load_setting">' +
+                    '<div id="load" save_name = "' + saveName + '">' + saveName + '</div>' +
+                    '<div id="delete">X</div>'+
+                '</div>'
+            ))
     }
 }
 

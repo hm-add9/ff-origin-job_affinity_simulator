@@ -2,15 +2,12 @@
 body {
 	font-size: 11px;
 }
-
 div#root {
 	display: flex;
 }
-
-div#job_display_switch_area {
-	white-space: nowrap;
+button {
+	font-size: 11px;;
 }
-
 table {
 	border-collapse:  collapse;
 }
@@ -18,24 +15,89 @@ th, td {
 	border:1px solid #000000;
 	padding: 10px 20px2 2;
 }
+div#title {
+	font-size: 12px;;
+	font-weight: bold;
+	border-bottom: 3px solid #ff8800;
+    margin-bottom: 10px;
+}
 
+
+div#save_setting_area {
+	display: flex;
+	border-bottom: 2px solid black;
+	padding-bottom: 5px;
+	background-color: #ddffdd;
+}
+div#save_setting_area div#load_setting_area {
+	display: flex;
+	margin-left: 50px;
+}
+div#save_setting_area div#load_setting_area #load_setting {
+	display: flex;
+	margin: 0px 5px;
+	padding: 2px 3px;
+	border: 2px solid black;
+    color: white;
+    background-color: black;
+    cursor: pointer;
+}
+div#save_setting_area div#load_setting_area #load_setting #delete {
+	font-weight: bold;
+    color: red;
+    background-color: white;
+	margin-left: 5px;;
+	padding: 0px 3px;
+}
+div#save_setting_area div#load_setting_area #load_setting #delete:hover {
+    color: white;
+    background-color: red;
+}
+
+div#root {
+	margin-top: 5px;;
+}
+
+div#job_display_switch_area {
+	white-space: nowrap;
+	margin-right: 10px;
+}
+
+
+
+div#value_input_area {
+	margin-left: 10px;;
+}
+div#value_input_area button#load_setting {
+	margin: 0px 2px;;
+}
 div#value_input_area div#setting_area {
 	display: flex;
 }
-
-div#value_input_area div#load_setting_area {
-	margin-left: 10px;
-}
-
 table#value_input {
 	white-space: nowrap;
 }
-
 table#value_input input {
 	width: 50px;
 	text-align: right;
 }
+table#value_input tr#summary td {
+    font-weight: bold;
+    background-color: darkorange;
+}
+table#value_input input[inputed="on"] {
+	background-color: aqua;
+}
 
+
+div#result_area {
+	margin-top: 20px;
+}
+div#result_area button#result {
+	font-size: 12px;;
+	font-weight: bold;
+	border: 2px solid deeppink;
+}
 #job_available_on {
 	background-color: aqua;
 }
@@ -46,13 +108,23 @@ table#value_input tr#header {
 table#value_input tr td:nth-child(1) {
 	background-color: pink;
 }
-
 table#result tr#header {
 	background-color: pink;
 }
 table#result tr td:nth-child(1) {
 	background-color: pink;
 }
+table#result tr:nth-child(n+2) td:nth-child(n+2) {
+	max-width: 300px;
+	height: 80px;
+	vertical-align: top;
+}
+table#result tr td:nth-child(n+2) #affinity_name {
+	color: white;
+    background-color: black;
+}
+
+
 
 td[recommendation="on"] {
 	color: red;
