@@ -1,0 +1,59 @@
+
+body {
+	font-size: 11px;
+}
+
+div#root {
+	display: flex;
+}
+
+div#job_display_switch_area {
+	white-space: nowrap;
+}
+
+table {
+	border-collapse:  collapse;
+}
+th, td {
+	border:1px solid #000000;
+	padding: 10px 20px2 2;
+}
+
+div#value_input_area div#setting_area {
+	display: flex;
+}
+
+div#value_input_area div#load_setting_area {
+	margin-left: 10px;
+}
+
+table#value_input {
+	white-space: nowrap;
+}
+
+table#value_input input {
+	width: 50px;
+	text-align: right;
+}
+
+#job_available_on {
+	background-color: aqua;
+}
+
+table#value_input tr#header {
+	background-color: pink;
+}
+table#value_input tr td:nth-child(1) {
+	background-color: pink;
+}
+
+table#result tr#header {
+	background-color: pink;
+}
+table#result tr td:nth-child(1) {
+	background-color: pink;
+}
+
+td[recommendation="on"] {
+	color: red;
+}
