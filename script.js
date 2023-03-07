@@ -54,7 +54,8 @@ $(document).ready(function() {
     // clear all value
     $('div#value_input_area').on('click', 'button#clear', function(event) {
         $('table#value_input input').val('');
-        $('table#value_input tr:nth-child(n+2) [id="set_num"]').html('0');
+        $('table#value_input tr:nth-child(n+2) [id="set_num"]').html('');
+        summaryValue();
     });
     // summary
     $('table#value_input').on('blur', 'input', function(event) {
@@ -108,9 +109,15 @@ function result() {
 }
 
 function filterDisplayResultJob(selectValue) {
-    if (selectValue == 'all') {
-        $('table#result tr[job]').show();
-    } else {
+    $('table#result tr[job]').show();
+    if (selectValue == 'marking') {
+        $('table#result tr[job]').each(function(index, element) {
+            var target = $(this);
+            if (target.find('[marking="on"]').length == 0) {
+                target.hide();
+            }
+        });
+    } else if (selectValue == 'seleted_job') {
         $('div#job_display_switch_area input').each(function(index, element) {
             var target = $(this);
             var job = target.attr('job');
@@ -122,12 +129,13 @@ function filterDisplayResultJob(selectValue) {
 }
 
 function cahngeJobAvailable(job, value) {
-    if (value && !value.match(/[^0-9]/)) {
 
-        $('table#result [job="' + job + '"] td:nth-child(2)').attr('id', '');
-        $('table#result [job="' + job + '"] td:nth-child(3)').attr('id', '');
-        $('table#result [job="' + job + '"] td:nth-child(4)').attr('id', '');
-        $('table#result [job="' + job + '"] td:nth-child(5)').attr('id', '');
+    $('table#result [job="' + job + '"] td:nth-child(2)').attr('id', '');
+    $('table#result [job="' + job + '"] td:nth-child(3)').attr('id', '');
+    $('table#result [job="' + job + '"] td:nth-child(4)').attr('id', '');
+    $('table#result [job="' + job + '"] td:nth-child(5)').attr('id', '');
+
+    if (value && !value.match(/[^0-9]/)) {
 
         if (value >= 50) {
             $('table#result [job="' + job + '"] td:nth-child(2)').attr('id', 'job_available_on');
@@ -158,10 +166,10 @@ function displayOnAllJobByCheckbox() {
 function controlDisplayJob(job, displayOnFlg) {
     if (displayOnFlg) {
         $('table#value_input [job="' + job + '"]').show();
-        $('table#result [job="' + job + '"]').show();
+        $('table#result [job="' + job + '"]').fadeIn();
     } else {
         $('table#value_input [job="' + job + '"]').hide();
-        $('table#result [job="' + job + '"]').hide();
+        $('table#result [job="' + job + '"]').fadeOut(50);
     }
 }
 
@@ -176,6 +184,7 @@ function summaryValue() {
                 sum += parseInt(value, 10);
             }
         });
+        sum = (sum == 0) ? '' : sum;
         $('table#value_input tr#summary input[job="' + job + '"]').val(sum);
     });
 
