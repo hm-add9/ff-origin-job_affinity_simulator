@@ -70,6 +70,7 @@
 				<table id="value_input">
 					<tr id="header">
 						<td><button id="clear">clear</button></td>
+						<td id="set_num">自動設定値</td>
 						<td id="set_num">装備数</td>
 						<td job="sword">	剣士	</td>
 						<td job="big_sowrd">	大剣士	</td>
@@ -109,6 +110,7 @@
 					</tr>
 					<tr id="value" parts="wepon">
 						<td>武器</td>
+						<td id="auto_input_value"><input type="text" name="auto_value" value="250"></td>
 						<td id="set_num"></td>
 						<td job="sword">	<input type="text" name="sword" job="sword"> <button id="value_onoff" title="200を設定⇔削除の切り替え">●</button>
 						<td job="big_sowrd">	<input type="text" name="big_sowrd" job="big_sowrd"> <button id="value_onoff" title="200を設定⇔削除の切り替え">●</button>
@@ -148,6 +150,7 @@
 					</tr>
 					<tr id="value" parts="shield">
 						<td>盾</td>
+						<td id="auto_input_value"><input type="text" name="auto_value" value="50"></td>
 						<td id="set_num"></td>
 						<td job="sword">	<input type="text" name="sword" job="sword"> <button id="value_onoff" title="200を設定⇔削除の切り替え">●</button>
 						<td job="big_sowrd">	<input type="text" name="big_sowrd" job="big_sowrd"> <button id="value_onoff" title="200を設定⇔削除の切り替え">●</button>
@@ -187,6 +190,7 @@
 					</tr>
 					<tr id="value" parts="head">
 						<td>頭</td>
+						<td id="auto_input_value"><input type="text" name="auto_value" value="200"></td>
 						<td id="set_num"></td>
 						<td job="sword">	<input type="text" name="sword" job="sword"> <button id="value_onoff" title="200を設定⇔削除の切り替え">●</button>
 						<td job="big_sowrd">	<input type="text" name="big_sowrd" job="big_sowrd"> <button id="value_onoff" title="200を設定⇔削除の切り替え">●</button>
@@ -226,6 +230,7 @@
 					</tr>
 					<tr id="value" parts="body">
 						<td>胴</td>
+						<td id="auto_input_value"><input type="text" name="auto_value" value="200"></td>
 						<td id="set_num"></td>
 						<td job="sword">	<input type="text" name="sword" job="sword"> <button id="value_onoff" title="200を設定⇔削除の切り替え">●</button>
 						<td job="big_sowrd">	<input type="text" name="big_sowrd" job="big_sowrd"> <button id="value_onoff" title="200を設定⇔削除の切り替え">●</button>
@@ -265,6 +270,7 @@
 					</tr>
 					<tr id="value" parts="hand">
 						<td>手</td>
+						<td id="auto_input_value"><input type="text" name="auto_value" value="200"></td>
 						<td id="set_num"></td>
 						<td job="sword">	<input type="text" name="sword" job="sword"> <button id="value_onoff" title="200を設定⇔削除の切り替え">●</button>
 						<td job="big_sowrd">	<input type="text" name="big_sowrd" job="big_sowrd"> <button id="value_onoff" title="200を設定⇔削除の切り替え">●</button>
@@ -304,6 +310,7 @@
 					</tr>
 					<tr id="value" parts="waist">
 						<td>腰</td>
+						<td id="auto_input_value"><input type="text" name="auto_value" value="200"></td>
 						<td id="set_num"></td>
 						<td job="sword">	<input type="text" name="sword" job="sword"> <button id="value_onoff" title="200を設定⇔削除の切り替え">●</button>
 						<td job="big_sowrd">	<input type="text" name="big_sowrd" job="big_sowrd"> <button id="value_onoff" title="200を設定⇔削除の切り替え">●</button>
@@ -343,6 +350,7 @@
 					</tr>
 					<tr id="value" parts="leg">
 						<td>足</td>
+						<td id="auto_input_value"><input type="text" name="auto_value" value="200"></td>
 						<td id="set_num"></td>
 						<td job="sword">	<input type="text" name="sword" job="sword"> <button id="value_onoff" title="200を設定⇔削除の切り替え">●</button>
 						<td job="big_sowrd">	<input type="text" name="big_sowrd" job="big_sowrd"> <button id="value_onoff" title="200を設定⇔削除の切り替え">●</button>
@@ -382,6 +390,7 @@
 					</tr>
 					<tr id="summary">
 						<td>合計</td>
+						<td></td>
 						<td></td>
 						<td job="sword">	<input type="text" name="sword" job="sword"> <button id="value_onoff" title="200を設定⇔削除の切り替え">●</button>
 						<td job="big_sowrd">	<input type="text" name="big_sowrd" job="big_sowrd"> <button id="value_onoff" title="200を設定⇔削除の切り替え">●</button>
@@ -432,255 +441,399 @@
 				<table id="result">
 					<tr id="header">
 						<td>ジョブ</td>
+						<td  val="20">20%</td>
+						<td  val="30">20%</td>
+						<td  val="80">80%</td>
 						<td  val="50">50%/120%</td>
+						<td val="150">150%</td>
 						<td val="250">250%</td>
 						<td val="400">400%</td>
 						<td val="600">600%</td>
 					</tr>
 					<tr job="sword">
-						<td><div id="affinity_name">剣士</td>
+						<td><div id="affinity_name">剣士</div></td>
+						<td><div id="affinity_name">剣士1</div>HP+25</td>
+						<td><div id="affinity_name">剣士2</div>HP+25<br>体力+2</td>
+						<td><div id="affinity_name">剣士3</div>体力+2<br>知性+4<br>素早さ+4</td>
 						<td><div id="affinity_name">シールドボーナス</div>盾装備時にブレイク回復速度が7.5/12.5％上昇</td>
+						<td><div id="affinity_name">剣士4</div>HP+25<br>力+4<br>体力+2<br>精神+4<br>幸運+4</td>
 						<td><div id="affinity_name">フェンサーソウル</div>剣の強攻撃で敵に向かって急接近</td>
-						<td><div id="affinity_name">ソードマスター</div>剣の武器付属アビリティが全て使用可能<br>②コンボアビリティ与ダメ増加<br>②新コンボアビリティ追加<br>③基礎ジョブアビリティ追加</td>
+						<td><div id="affinity_name">ソードマスター</div>剣の武器付属アビリティが全て使用可能<br>[DLC2]コンボアビリティ与ダメ増加<br>[DLC2]新コンボアビリティ追加<br>[DLC3]基礎ジョブアビリティ追加</td>
 						<td><div id="affinity_name">無に挑みし探求の記憶</div>剣のコンボアビリティのMP消費減少</td>
 					</tr>
 					<tr job="big_sowrd">
-						<td><div id="affinity_name">大剣士</td>
+						<td><div id="affinity_name">大剣士</div></td>
+						<td><div id="affinity_name">大剣士1</div>体力+2</td>
+						<td><div id="affinity_name">大剣士2</div>HP+25<br>体力+2</td>
+						<td><div id="affinity_name">大剣士3</div>HP+50<br>力+2<br>体力+4</td>
 						<td><div id="affinity_name">ディフェンスボーナス</div>攻撃中の被ダメージ量が5.9/9.8％減少</td>
+						<td><div id="affinity_name">大剣士4</div>P+75<br>力+4<br>体力+6</td>
 						<td><div id="affinity_name">ソルジャーソウル</div>大剣の強化ガードに成功すると10秒間攻撃速度上昇</td>
-						<td><div id="affinity_name">グレートソードマスター</div>大剣の武器付属アビリティが全て使用可能<br>②コンボアビリティ与ダメ増加<br>②新コンボアビリティ追加<br>③基礎ジョブアビリティ追加</td>
+						<td><div id="affinity_name">グレートソードマスター</div>大剣の武器付属アビリティが全て使用可能<br>[DLC2]コンボアビリティ与ダメ増加<br>[DLC2]新コンボアビリティ追加<br>[DLC3]基礎ジョブアビリティ追加</td>
 						<td><div id="affinity_name">現在と過去を繋ぐ傭兵の記憶</div>大剣のコンボアビリティのMP消費減少</td>
 					</tr>
 					<tr job="ja_sord">
-						<td><div id="affinity_name">刀士</td>
+						<td><div id="affinity_name">刀士</div></td>
+						<td><div id="affinity_name">刀士1</div>力+2</td>
+						<td><div id="affinity_name">刀士2</div>HP+25<br>力+2</td>
+						<td><div id="affinity_name">刀士3</div>HP+50<br>力+4<br>体力+2</td>
 						<td><div id="affinity_name">スラッシュアタックボーナス</div>斬属性の与ブレイク量が5.9/9.8％増加</td>
+						<td><div id="affinity_name">刀士4</div>HP+75<br>力+4<br>体力+6</td>
 						<td><div id="affinity_name">剣客の魂</div>刀の後方派生攻撃をヒットさせると5秒間ブレイク回復速度上昇</td>
-						<td><div id="affinity_name">カタナマスター</div>刀の武器付属アビリティが全て使用可能<br>②コンボアビリティ与ダメ増加<br>②新コンボアビリティ追加<br>③基礎ジョブアビリティ追加</td>
+						<td><div id="affinity_name">カタナマスター</div>刀の武器付属アビリティが全て使用可能<br>[DLC2]コンボアビリティ与ダメ増加<br>[DLC2]新コンボアビリティ追加<br>[DLC3]基礎ジョブアビリティ追加</td>
 						<td><div id="affinity_name">星を巡りし凶刃の記憶</div>刀のコンボアビリティのMP消費減少</td>
 					</tr>
 					<tr job="battle">
-						<td><div id="affinity_name">格闘士</td>
+						<td><div id="affinity_name">格闘士</div></td>
+						<td><div id="affinity_name">格闘士1</div>素早さ+2</td>
+						<td><div id="affinity_name">格闘士2</div>力+2<br>素早さ+2</td>
+						<td><div id="affinity_name">格闘士3</div>HP+25<br>体力+4<br>素早さ+4</td>
 						<td><div id="affinity_name">クラッシュアタックボーナス</div>砕属性の与ブレイク量が5.9/9.8％増加</td>
+						<td><div id="affinity_name">格闘士4</div>HP+50<br>力+2<br>体力+4<br>素早さ+6</td>
 						<td><div id="affinity_name">拳闘士の魂</div>格闘の強攻撃で敵のブレイク上限減少</td>
-						<td><div id="affinity_name">グラップルマスター</div>格闘の武器付属アビリティが全て使用可能<br>②コンボアビリティ与ダメ増加<br>②新コンボアビリティ追加<br>③基礎ジョブアビリティ追加</td>
+						<td><div id="affinity_name">グラップルマスター</div>格闘の武器付属アビリティが全て使用可能<br>[DLC2]コンボアビリティ与ダメ増加<br>[DLC2]新コンボアビリティ追加<br>[DLC3]基礎ジョブアビリティ追加</td>
 						<td><div id="affinity_name">俺流つらぬく格闘王の記憶</div>格闘のコンボアビリティのMP消費減少</td>
 					</tr>
 					<tr job="axe">
-						<td><div id="affinity_name">斧士</td>
+						<td><div id="affinity_name">斧士</div></td>
+						<td><div id="affinity_name">斧士1</div>力+2</td>
+						<td><div id="affinity_name">斧士2</div>力+2<br>体力+2</td>
+						<td><div id="affinity_name">斧士3</div>HP+25<br>力+4<br>体力+4</td>
 						<td><div id="affinity_name">チャージアタックボーナス</div>溜め攻撃の与ブレイク量が6.8/11.3％増加</td>
+						<td><div id="affinity_name">斧士4</div>HP+50<br>力+6<br>体力+6</td>
 						<td><div id="affinity_name">バーバリアンソウル</div>斧の溜めが4段階になる</td>
-						<td><div id="affinity_name">アクスマスター</div>斧の武器付属アビリティが全て使用可能<br>②コンボアビリティ与ダメ増加<br>②新コンボアビリティ追加<br>③基礎ジョブアビリティ追加</td>
+						<td><div id="affinity_name">アクスマスター</div>斧の武器付属アビリティが全て使用可能<br>[DLC2]コンボアビリティ与ダメ増加<br>[DLC2]新コンボアビリティ追加<br>[DLC3]基礎ジョブアビリティ追加</td>
 						<td><div id="affinity_name">子を受け入れし厄災の記憶</div>斧のコンボアビリティのMP消費減少</td>
 					</tr>
 					<tr job="witch">
-						<td><div id="affinity_name">魔術士</td>
+						<td><div id="affinity_name">魔術士</div></td>
+						<td><div id="affinity_name">魔術士1</div>知性+2</td>
+						<td><div id="affinity_name">魔術士2</div>知性+2<br>精神+2</td>
+						<td><div id="affinity_name">魔術士3</div>HP+25<br>知性+4<br>精神+2<br>素早さ+2</td>
 						<td><div id="affinity_name">スキルアタックボーナス</div>アビリティの与ブレイク量が5.9/9.8％増加</td>
+						<td><div id="affinity_name">魔術士4</div>HP+25<br>知性+6<br>精神+4<br>素早さ+4</td>
 						<td><div id="affinity_name">黒い悪魔の魂</div>棍の後派生攻撃で相手の攻撃を受け止めるとブレイク回復</td>
-						<td><div id="affinity_name">メイスマスター</div>棍の武器付属アビリティが全て使用可能<br>②コンボアビリティ与ダメ増加<br>②新コンボアビリティ追加<br>③基礎ジョブアビリティ追加</td>
+						<td><div id="affinity_name">メイスマスター</div>棍の武器付属アビリティが全て使用可能<br>[DLC2]コンボアビリティ与ダメ増加<br>[DLC2]新コンボアビリティ追加<br>[DLC3]基礎ジョブアビリティ追加</td>
 						<td><div id="affinity_name">傍若無人な悪魔の記憶</div>棍のコンボアビリティのMP消費減少</td>
 					</tr>
 					<tr job="knife">
-						<td><div id="affinity_name">短剣士</td>
+						<td><div id="affinity_name">短剣士</div></td>
+						<td><div id="affinity_name">短剣士1</div>素早さ+2</td>
+						<td><div id="affinity_name">短剣士2</div>精神+2<br>素早さ+2</td>
+						<td><div id="affinity_name">短剣士3</div>HP+25<br>力+2<br>精神+2<br>素早さ+4</td>
 						<td><div id="affinity_name">クリティカルボーナス</div>クリティカルの与ブレイク量が8.1/13.5%増加</td>
+						<td><div id="affinity_name">短剣士4</div>HP+25<br>力+4<br>精神+4<br>素早さ+6</td>
 						<td><div id="affinity_name">義賊の魂</div>短剣の前後左右派生攻撃が2連続で使える</td>
-						<td><div id="affinity_name">ダガーマスター</div>短剣の武器付属アビリティが全て使用可能<br>②コンボアビリティ与ダメ増加<br>②新コンボアビリティ追加<br>③基礎ジョブアビリティ追加</td>
+						<td><div id="affinity_name">ダガーマスター</div>短剣の武器付属アビリティが全て使用可能<br>[DLC2]コンボアビリティ与ダメ増加<br>[DLC2]新コンボアビリティ追加<br>[DLC3]基礎ジョブアビリティ追加</td>
 						<td><div id="affinity_name">憎しみに溺れる復讐者の記憶</div>短剣のコンボアビリティのMP消費減少</td>
 					</tr>
 					<tr job="spear">
-						<td><div id="affinity_name">杖士</td>
+						<td><div id="affinity_name">杖士</div></td>
+						<td><div id="affinity_name">杖士1</div>力+1<br></td>
+						<td><div id="affinity_name">杖士2</div>力+1<br>素早さ＋1</td>
+						<td><div id="affinity_name">杖士3</div>力＋2<br>精神＋1<br>素早さ＋2</td>
 						<td><div id="affinity_name">ブレイクアジリティボーナス</div>ブレイク回復速度が7.5/12.5%上昇</td>
-						<td><div id="affinity_name">ミシディアンソウル</div>杖の後派生攻撃に無敵が追加<br>③無敵時間増加</td>
-						<td><div id="affinity_name">ケーンマスター</div>杖の武器付属アビリティが全て使用可能<br>②コンボアビリティ与ダメ増加<br>②新コンボアビリティ追加<br>③基礎ジョブアビリティ追加</td>
+						<td><div id="affinity_name">杖士4</div>力＋3<br>精神＋2<br>素早さ＋3</td>
+						<td><div id="affinity_name">ミシディアンソウル</div>杖の後派生攻撃に無敵が追加<br>[DLC3]無敵時間増加</td>
+						<td><div id="affinity_name">ケーンマスター</div>杖の武器付属アビリティが全て使用可能<br>[DLC2]コンボアビリティ与ダメ増加<br>[DLC2]新コンボアビリティ追加<br>[DLC3]基礎ジョブアビリティ追加</td>
 						<td><div id="affinity_name">虚空を望む妖の記憶</div>杖のコンボアビリティのMP消費減少</td>
 					<tr job="lancer">
-						<td><div id="affinity_name">槍士</td>
+						<td><div id="affinity_name">槍士</div></td>
+						<td><div id="affinity_name">槍士1</div>HP+25</td>
+						<td><div id="affinity_name">槍士2</div>HP+25<br>素早さ+2</td>
+						<td><div id="affinity_name">槍士3</div>HP+50<br>力+2<br>素早さ+4</td>
 						<td><div id="affinity_name">スラストアタックボーナス</div>突属性の与ブレイク量が5.9/9.8%増加</td>
+						<td><div id="affinity_name">槍士4</div>HP+75<br>力+4<br>素早さ+6</td>
 						<td><div id="affinity_name">尖兵の魂</div>槍の左右派生攻撃にガード属性付与</td>
-						<td><div id="affinity_name">スピアマスター</div>槍の武器付属アビリティが全て使用可能<br>②コンボアビリティ与ダメ増加<br>②新コンボアビリティ追加<br>③基礎ジョブアビリティ追加</td>
+						<td><div id="affinity_name">スピアマスター</div>槍の武器付属アビリティが全て使用可能<br>[DLC2]コンボアビリティ与ダメ増加<br>[DLC2]新コンボアビリティ追加<br>[DLC3]基礎ジョブアビリティ追加</td>
 						<td><div id="affinity_name">折れぬ誇りを持つ槍兵の記憶</div>槍のコンボアビリティのMP消費減少</td>
 					</tr>
 					</tr>
 					<tr job="gun">
-						<td><div id="affinity_name">銃士</td>
+						<td><div id="affinity_name">銃士</div></td>
+						<td><div id="affinity_name">銃士1</div>知性+1</td>
+						<td><div id="affinity_name">銃士2</div>知性+1<br>素早さ+1</td>
+						<td><div id="affinity_name">銃士3</div>知性+1<br>素早さ+2<br>力+2</td>
 						<td><div id="affinity_name">タクティカルドッジ</div>無敵時間で回避すると通常攻撃のMP回復量増加</td>
+						<td><div id="affinity_name">銃士4</div>知性+3<br>素早さ+3<br>力+2</td>
 						<td><div id="affinity_name">フェイタルアタック</div>回避ローリング中に通常攻撃でしゃがみ撃ち</td>
 						<td><div id="affinity_name">ガンマスター</div>銃の武器付属アビリティが全て使用可能</div>コンボアビリティ与ダメ増加</td>
 						<td><div id="affinity_name">運命が交差する大統領の記憶</div>銃のコンボアビリティのMP消費減少</td>
 					</tr>
 					<tr job="fight">
-						<td><div id="affinity_name">戦士</td>
+						<td><div id="affinity_name">戦士</div></td>
+						<td><div id="affinity_name">戦士1</div>HP+25</td>
+						<td><div id="affinity_name">戦士2</div>HP+25<br>力+2</td>
+						<td><div id="affinity_name">戦士3</div>HP+50<br>力+4<br>体力+2</td>
 						<td><div id="affinity_name">ウォールヒットボーナス</div>壁激突時の与ブレイク量が22.5/37.5%増加</td>
+						<td><div id="affinity_name">戦士4</div>HP+75<br>力+6<br>体力+4</td>
 						<td><div id="affinity_name">闘争への渇き</div>コンボアビリティ効果が適用されたアビリティの消費MP20％減少</td>
 						<td><div id="affinity_name">ブラッドエイジ</div>敵の弱点を突いたとき、ブレイク上限減少</td>
 						<td><div id="affinity_name">真実受け入れし戦士の記憶</div>HP最大時に物理属性弱点を突きやすくなる</td>
 					</tr>
 					<tr job="night">
-						<td><div id="affinity_name">ナイト</td>
+						<td><div id="affinity_name">ナイト</div></td>
+						<td><div id="affinity_name">ナイト1</div>力+2</td>
+						<td><div id="affinity_name">ナイト2</div>力+4</td>
+						<td><div id="affinity_name">ナイト3</div>+50<br>体力+6</td>
 						<td><div id="affinity_name">ガードセーブボーナス</div>ガード成功時のブレイク消費量が6.0/10.0%減少</td>
+						<td><div id="affinity_name">ナイト4</div>HP+75<br>体力+8<br>精神+2</td>
 						<td><div id="affinity_name">騎士の矜持</div>ステータス補正がある全てのアビリティで、「体力」が適用</td>
-						<td><div id="affinity_name">インビンシブル</div>ライトブリンガーの<s>効果時間が0.4倍になり、その</s>間は無敵状態<br>②被弾すると効果時間減少</td>
+						<td><div id="affinity_name">インビンシブル</div>ライトブリンガーの<s>効果時間が0.4倍になり、その</s>間は無敵状態<br>[DLC2]被弾すると効果時間減少</td>
 						<td><div id="affinity_name">闘争退けし守護者の記憶</div>ソウルシールド成功時に20段階まで体力増加</td>
 					</tr>
 					<tr job="berderker">
-						<td><div id="affinity_name">バーサーカー</td>
+						<td><div id="affinity_name">バーサーカー</div></td>
+						<td><div id="affinity_name">バーサーカー1</div>体力+2</td>
+						<td><div id="affinity_name">バーサーカー2</div>力+2<br>体力+2</td>
+						<td><div id="affinity_name">バーサーカー3</div>HP+25<br>力+2<br>体力+6</td>
 						<td><div id="affinity_name">ブレイクヒールボーナス</div>ダメージを与えると基本威力の6.0/10.0％ブレイク回復</td>
-						<td marking="on"><div id="affinity_name">野生の目覚め</div>瀕死時、プロテスとシェルの効果が発動<br>①解除時の持続時間減少<br>②白魔法と重複できない</td>
-						<td><div id="affinity_name">内なる本能</div>ライトブリンガーの効果中、MPが秒間10回復<br>③MP回復量増加</td>
+						<td><div id="affinity_name">バーサーカー4</div>HP+25<br>力+2<br>体力+6</td>
+						<td marking="on"><div id="affinity_name">野生の目覚め</div>瀕死時、プロテスとシェルの効果が発動<br>[DLC1]解除時の持続時間減少<br>[DLC2]白魔法と重複できない</td>
+						<td><div id="affinity_name">内なる本能</div>ライトブリンガーの効果中、MPが秒間10回復<br>[DLC3]MP回復量増加</td>
 						<td marking="on"><div id="affinity_name">戦いを求めし猛者の記憶</div>ソウルバーストするとライトブリンガーの効果発動</td>
 					</tr>
 					<tr job="thief">
-						<td><div id="affinity_name">シーフ</td>
-						<td><div id="affinity_name">テイカーボーナス</div>インスタントアビリティの与ダメージ量が4.2/7.0%増加<br>③効果量増加</td>
+						<td><div id="affinity_name">シーフ</div></td>
+						<td><div id="affinity_name">シーフ1</div>素早さ+2</td>
+						<td><div id="affinity_name">シーフ2</div>素早さ+2<br>幸運+2</td>
+						<td><div id="affinity_name">シーフ3</div>知性+2<br>素早さ+4<br>幸運+4</td>
+						<td><div id="affinity_name">テイカーボーナス</div>インスタントアビリティの与ダメージ量が4.2/7.0%増加<br>[DLC3]効果量増加</td>
+						<td><div id="affinity_name">シーフ4</div>知性+2<br>素早さ+4<br>幸運+4</td>
 						<td><div id="affinity_name">幸運を運ぶ羽根</div>ステータス補正がある全てのアビリティで、「幸運」が適用</td>
-						<td marking="on"><div id="affinity_name">トレジャーハンター</div>レアリティの高い装備を入手しやすくなる<br>①仲間が発動しても有効</td>
+						<td marking="on"><div id="affinity_name">トレジャーハンター</div>レアリティの高い装備を入手しやすくなる<br>[DLC1]仲間が発動しても有効</td>
 						<td><div id="affinity_name">盗技極めし青光の記憶</div>ソウルシールド成功時に20段階まで幸運増加</td>
 					</tr>
 					<tr job="monk">
-						<td><div id="affinity_name">モンク</td>
+						<td><div id="affinity_name">モンク</div></td>
+						<td><div id="affinity_name">モンク1</div>素早さ+2</td>
+						<td><div id="affinity_name">モンク2</div>HP+25<br>素早さ+2</td>
+						<td><div id="affinity_name">モンク3</div>HP+25<br>力+2<br>体力+2<br>素早さ+4</td>
 						<td><div id="affinity_name">ブレイクリミットボーナス</div>ブレイクが60/100上昇</td>
+						<td><div id="affinity_name">モンク4</div>HP+50<br>力+4<br>体力+4<br>素早さ+4</td>
 						<td><div id="affinity_name">ハイテンション</div>ジャストガードによって発動する強化効果の持続時間+100％</td>
 						<td><div id="affinity_name">マントラ</div>最大HPが1.5倍前後に上昇</td>
 						<td><div id="affinity_name">師の教え受け継ぐ拳者の記憶</div>攻撃ヒットごとに最大HP割合に応じて無属性追加ダメージ</td>
 					</tr>
 					<tr job="white">
-						<td><div id="affinity_name">白魔道士</td>
+						<td><div id="affinity_name">白魔道士</div></td>
+						<td><div id="affinity_name">白魔道士1</div>精神+2</td>
+						<td><div id="affinity_name">白魔道士2</div>精神+4</td>
+						<td><div id="affinity_name">白魔道士3</div>力+2<br>体力+2<br>精神+6</td>
 						<td marking="on"><div id="affinity_name">グッドタイムボーナス</div>自身を強化する効果の効果時間が7.5/12.5%延長</td>
+						<td><div id="affinity_name">白魔道士4</div>力+4<br>体力+4<br>精神+8</td>
 						<td><div id="affinity_name">生を望みし祈り</div>ステータス補正がある全てのアビリティで、「精神」が適用</td>
 						<td><div id="affinity_name">オートリレイズ</div>死亡時、一度だけHP30％で復活</div>復活後にキューブに触れると再度付与</td>
 						<td><div id="affinity_name">慈愛の心もつ乙女の記憶</div>ソウルシールド成功時に20段階まで精神増加</td>
 					</tr>
 					<tr job="black">
-						<td><div id="affinity_name">黒魔道士</td>
+						<td><div id="affinity_name">黒魔道士</div></td>
+						<td><div id="affinity_name">黒魔道士1</div>知性+2</td>
+						<td><div id="affinity_name">黒魔道士2</div>知性+4</td>
+						<td><div id="affinity_name">黒魔道士3</div>知性+6<br>精神+2<br>素早さ+2</td>
 						<td><div id="affinity_name">マジックアタックボーナス</div>魔法属性の与ブレイク量が6.3/10.5%増加</td>
+						<td><div id="affinity_name">黒魔道士4</div>知性+8<br>精神+4<br>素早さ+4</td>
 						<td><div id="affinity_name">死を望みし祈り</div>ステータス補正がある全てのアビリティで、「知性」が適用</td>
 						<td marking="on"><div id="affinity_name">ライオットマジック</div>魔法属性ダメージを与えると基本威力の約2％分MP上限増加</td>
 						<td><div id="affinity_name">命の意味知る黒き傀儡の記憶</div>ソウルシールド成功時に20段階まで知性増加</td>
 					</tr>
 					<tr job="red">
-						<td><div id="affinity_name">赤魔道士</td>
+						<td><div id="affinity_name">赤魔道士</div></td>
+						<td><div id="affinity_name">赤魔道士1</div>知性+2</td>
+						<td><div id="affinity_name">赤魔道士2</div>知性+2<br>精神+2</td>
+						<td><div id="affinity_name">赤魔道士3</div>力+2<br>知性+4<br>精神+4</td>
 						<td><div id="affinity_name">アタックアスピルボーナス</div>通常攻撃のMP回復量が6.8/11.3%増加</td>
+						<td><div id="affinity_name">赤魔道士4</div>力+2<br>知性+4<br>精神+4</td>
 						<td marking="on"><div id="affinity_name">ファストチャージ</div>溜めと詠唱の速度が50％上昇</td>
 						<td marking="on"><div id="affinity_name">カラミティマジック</div>敵を状態異常にしたとき、MP上限40増加し、MP40回復</td>
-						<td><div id="affinity_name">紅蓮に燃ゆる暁光の記憶</div>魔法属性与ダメージの累積で、3段階まで次のアビリティの物理属性ダメージ増加<br>③効果量増加</td>
+						<td><div id="affinity_name">紅蓮に燃ゆる暁光の記憶</div>魔法属性与ダメージの累積で、3段階まで次のアビリティの物理属性ダメージ増加<br>[DLC3]効果量増加</td>
 					</tr>
 					<tr job="doragon">
-						<td><div id="affinity_name">竜騎士</td>
+						<td><div id="affinity_name">竜騎士</div></td>
+						<td><div id="affinity_name">竜騎士1</div>素早さ+2</td>
+						<td><div id="affinity_name">竜騎士2</div>力+2<br>素早さ+2</td>
+						<td><div id="affinity_name">竜騎士3</div>HP+25<br>力+4<br>素早さ+4</td>
 						<td><div id="affinity_name">ウィークボーナス</div>敵の弱点を突いたときの与ブレイク量が5.9/9.8%増加</td>
+						<td><div id="affinity_name">竜騎士4</div>HP+50<br>力+6<br>素早さ+6</td>
 						<td><div id="affinity_name">ドラゴンパワー</div>アクションアビリティで敵を倒すと自動的にソウルバースト</td>
 						<td><div id="affinity_name">空を制する者</div>ライトブリンガーの効果中、攻撃・溜め・詠唱時間が15％短縮</td>
 						<td><div id="affinity_name">弱き心乗り越えし竜騎士の記憶</div>弱点属性で攻撃するとHP・MP回復</td>
 					</tr>
 					<tr job="samurai">
-						<td><div id="affinity_name">侍</td>
+						<td><div id="affinity_name">侍</div></td>
+						<td><div id="affinity_name">侍1</div>力+2</td>
+						<td><div id="affinity_name">侍2</div>力+2<br>素早さ+2</td>
+						<td><div id="affinity_name">侍3</div>力+6<br>素早さ+4</td>
 						<td><div id="affinity_name">アビリティセーブボーナス</div>アクションアビリティのMP消費が6.0/10.0%減少</td>
-						<td><div id="affinity_name">継続は力なり</div>チェインキャンセルすると10秒間与ダメージ量増加<br>②効果時間減少</td>
+						<td><div id="affinity_name">侍4</div>HP+50<br>力+6<br>素早さ+6</td>
+						<td><div id="affinity_name">継続は力なり</div>チェインキャンセルすると10秒間与ダメージ量増加<br>[DLC2]効果時間減少</td>
 						<td><div id="affinity_name">心眼</div>ジャストガード成功時、次のアビリティがクリティカル</td>
 						<td marking="on"><div id="affinity_name">友との約束果たす古兵の記憶</div>コンボアビリティ効果の発動時に、ジャストガード成功時の効果発動</td>
 					</tr>
 					<tr job="illusion">
-						<td><div id="affinity_name">幻術士</td>
-						<td><div id="affinity_name">ソウルシールドMPボーナス</div>ソウルシールド成功時、仲間のMPも回復<br>②MP回復量増加</td>
-						<td><div id="affinity_name">薬学の心得</div>ポーション使用時、状態異常も回復<br>③弱体効果も回復</td>
+						<td><div id="affinity_name">幻術士</div></td>
+						<td><div id="affinity_name">幻術士1</div>力＋1</td>
+						<td><div id="affinity_name">幻術士2</div>力＋1<br>精神＋1</td>
+						<td><div id="affinity_name">幻術士3</div>力＋2<br>精神＋2<br>素早さ＋1</td>
+						<td><div id="affinity_name">ソウルシールドMPボーナス</div>ソウルシールド成功時、仲間のMPも回復<br>[DLC2]MP回復量増加</td>
+						<td><div id="affinity_name">幻術士4</div>力＋3<br>精神＋3<br>素早さ＋2</td>
+						<td><div id="affinity_name">薬学の心得</div>ポーション使用時、状態異常も回復<br>[DLC3]弱体効果も回復</td>
 						<td marking="on"><div id="affinity_name">クリアマインド</div>HP最大時にMPが徐々に回復</td>
 						<td><div id="affinity_name">精霊と対話する柘榴石の記憶</div>ソウルシールド成功時にブレイク回復</td>
 					</tr>
 					<tr job="hunter">
-						<td><div id="affinity_name">狩人</td>
+						<td><div id="affinity_name">狩人</div></td>
+						<td><div id="affinity_name">狩人1</div>@</td>
+						<td><div id="affinity_name">狩人2</div>@</td>
+						<td><div id="affinity_name">狩人3</div>@</td>
 						<td><div id="affinity_name">スナイピング</div>弱点攻撃の与ダメージ量に応じてブレイク回復</td>
+						<td><div id="affinity_name">狩人4</div></td>
 						<td><div id="affinity_name">バックアタック</div>クリティカルが発生しやすくなる</td>
 						<td><div id="affinity_name">MPサーキュレーション</div>攻撃ヒットでMP回復</div>ダメージ量に依存しない</td>
 						<td><div id="affinity_name">時空超えし最後の狩人の記憶</div>弱点攻撃で素早さに応じて与ブレイク増加</td>
 					</tr>
 					<tr job="black_night">
-						<td><div id="affinity_name">暗黒騎士</td>
-						<td><div id="affinity_name">リベンジボーナス</div>瀕死状態のときに与ダメージ量が9.0/15.0%増加<br>①効果量減少</td>
+						<td><div id="affinity_name">暗黒騎士</div></td>
+						<td><div id="affinity_name">暗黒騎士1</div>力+2</td>
+						<td><div id="affinity_name">暗黒騎士2</div>力+2<br>知性+2</td>
+						<td><div id="affinity_name">暗黒騎士3</div>HP+25<br>力+6<br>知性+2</td>
+						<td><div id="affinity_name">リベンジボーナス</div>瀕死状態のときに与ダメージ量が9.0/15.0%増加<br>[DLC1]効果量減少</td>
+						<td><div id="affinity_name">暗黒騎士4</div><HP+50<br>力+8<br>知性+4</td>
 						<td><div id="affinity_name">叛逆の狼煙</div>敵に狙われているとき、与ダメージ量15％増加</td>
 						<td marking="on"><div id="affinity_name">ラストリゾート</div>瀕死時に発動する全ての効果を常時発動</td>
 						<td><div id="affinity_name">力を渇望する騎士の記憶</div>通常攻撃ヒットで増加するMPに応じてHP回復</td>
 					</tr>
 					<tr job="paladin">
-						<td><div id="affinity_name">パラディン</td>
+						<td><div id="affinity_name">パラディン</div></td>
+						<td><div id="affinity_name">パラディン1</div>HP+25</td>
+						<td><div id="affinity_name">パラディン2</div>HP+50</td>
+						<td><div id="affinity_name">パラディン3</div>HP+100<br>体力+6<br>精神+2</td>
 						<td><div id="affinity_name">ハイボルテージボーナス</div>HP最大時に与ブレイク量が6.8/11.3%増加</td>
-						<td><div id="affinity_name">光もたらす者</div>ライトブリンガーの効果中、2秒ごとにHP3％回復<br>③HP回復量増加</td>
+						<td><div id="affinity_name">パラディン4</div>HP+100<br>体力+6<br>精神+2</td>
+						<td><div id="affinity_name">光もたらす者</div>ライトブリンガーの効果中、2秒ごとにHP3％回復<br>[DLC3]HP回復量増加</td>
 						<td marking="on"><div id="affinity_name">破邪の光</div>全ての状態異常を無効化</td>
 						<td><div id="affinity_name">試練を超えた聖騎士の記憶</div>ソウルシールド成功時に20段階まで最大HP増加</td>
 					</tr>
 					<tr job="ninja">
-						<td><div id="affinity_name">忍者</td>
+						<td><div id="affinity_name">忍者</div></td>
+						<td><div id="affinity_name">忍者1</div>素早さ+2</td>
+						<td><div id="affinity_name">忍者2</div>知性+2<br>素早さ+2</td>
+						<td><div id="affinity_name">忍者3</div>力+2<br>知性+4<br>精神+2<br>素早さ+4</td>
 						<td><div id="affinity_name">チェイサーボーナス</div>状態異常の敵を攻撃した際のMP回復量が10.1/16.9%増加</td>
+						<td><div id="affinity_name">忍者4</div>力+2<br>知性+4<br>精神+4<br>素早さ+6</td>
 						<td><div id="affinity_name">致命の一撃</div>クリティカルヒット時、ブレイク上限をより多く減少</td>
 						<td><div id="affinity_name">忍びの道</div>アビリティ攻撃がヒットした敵に「10秒間、ブレイク回復速度50％低下」を付与</td>
 						<td><div id="affinity_name">故郷を憂う末裔の記憶</div>攻撃を無敵時間で回避するとMP回復</td>
 					</tr>
 					<tr job="assasin">
-						<td><div id="affinity_name">アサシン</td>
+						<td><div id="affinity_name">アサシン</div></td>
+						<td><div id="affinity_name">アサシン1</div>素早さ+2</td>
+						<td><div id="affinity_name">アサシン2</div>素早さ+4</td>
+						<td><div id="affinity_name">アサシン3</div>体力+2<br>知性+2<br>素早さ+6</td>
 						<td><div id="affinity_name">ソウルシールドセーブボーナス</div>ソウルシールド成功時のブレイク消費量が5.3/8.8%減少</td>
+						<td><div id="affinity_name">アサシン4</div>体力+4<br>知性+4<br>素早さ+8</td>
 						<td><div id="affinity_name">刹那にかける思い</div>ステータス補正がある全てのアビリティで、「素早さ」が適用</td>
-						<td><div id="affinity_name">死に場所を求める修羅</div>ダメージを受けてない時間5秒ごとに与ブレイク量が5段階まで増加<br>③バトルセット切替でも継続</td>
+						<td><div id="affinity_name">死に場所を求める修羅</div>ダメージを受けてない時間5秒ごとに与ブレイク量が5段階まで増加<br>[DLC3]バトルセット切替でも継続</td>
 						<td><div id="affinity_name">過去を捨て去りし修羅の記憶</div>ソウルシールド成功時に20段階まで素早さ増加</td>
 					</tr>
 					<tr job="liberate">
-						<td><div id="affinity_name">解放者</td>
+						<td><div id="affinity_name">解放者</div></td>
+						<td><div id="affinity_name">解放者1</div>体力+2</td>
+						<td><div id="affinity_name">解放者2</div>体力+2<br>精神+2</td>
+						<td><div id="affinity_name">解放者3</div>HP+25<br>体力+4<br>精神+4</td>
 						<td><div id="affinity_name">ジャストガードボーナス</div>ジャストガードの猶予時間が25.0/25.0%延長</td>
+						<td><div id="affinity_name">解放者4</div>HP+50<br>体力+6<br>精神+6</td>
 						<td><div id="affinity_name">魂の解放</div>自身へのHP回復効果30％増加</td>
-						<td marking="on"><div id="affinity_name">英雄の導き</div>ポーションの対象が味方全員<br>③戦闘不能の仲間も回復</td>
+						<td marking="on"><div id="affinity_name">英雄の導き</div>ポーションの対象が味方全員<br>[DLC3]戦闘不能の仲間も回復</td>
 						<td><div id="affinity_name">神に抗いし一閃の記憶</div>「力・素早さ・体力・知性・精神・幸運」に応じて仲間のステータス増加</td>
 					</tr>
 					<tr job="breaker">
-						<td><div id="affinity_name">ブレイカー</td>
+						<td><div id="affinity_name">ブレイカー</div></td>
+						<td><div id="affinity_name">ブレイカー1</div>力+2</td>
+						<td><div id="affinity_name">ブレイカー2</div>力+4</td>
+						<td><div id="affinity_name">ブレイカー3</div>HP+25<br>力+6<br>体力+2</td>
 						<td><div id="affinity_name">ソウルバーストボーナス</div>ソウルバースト時のMP回復量が10.8/18.0%増加</td>
+						<td><div id="affinity_name">ブレイカー4</div>HP+50<br>力+8<br>体力+2<br>素早さ+2</td>
 						<td><div id="affinity_name">力の求道者</div>ステータス補正がある全てのアビリティで、「力」が適用</td>
-						<td><div id="affinity_name">シャドウブレイカー</div>ソウルバーストするたびに与ダメージ量が5段階まで増加</div>怯むか20秒経過すると解除<br>③バトルセット切替でも継続</td>
+						<td><div id="affinity_name">シャドウブレイカー</div>ソウルバーストするたびに与ダメージ量が5段階まで増加</div>怯むか20秒経過すると解除<br>[DLC3]バトルセット切替でも継続</td>
 						<td><div id="affinity_name">星の光奪いし男の記憶</div>ソウルシールド成功時に20段階まで力増加</td>
 					</tr>
 					<tr job="void_night">
-						<td><div id="affinity_name">ヴォイドナイト</td>
+						<td><div id="affinity_name">ヴォイドナイト</div></td>
+						<td><div id="affinity_name">ヴォイドナイト1</div>精神+2</td>
+						<td><div id="affinity_name">ヴォイドナイト2</div>知性+2<br>精神+2</td>
+						<td><div id="affinity_name">ヴォイドナイト3</div>HP+25<br>体力+2<br>知性+2<br>精神+4</td>
 						<td><div id="affinity_name">MPリミットボーナス</div>MP上限の増加量が6.8/11.3%上昇</td>
+						<td><div id="affinity_name">ヴォイドナイト4</div>HP+25<br>体力+4<br>知性+4<br>精神+6</td>
 						<td><div id="affinity_name">虚空に刻まれしルーン</div>自身へのMP回復効果15％増加</td>
 						<td><div id="affinity_name">パワーオブヴォイド</div>コマンドアビリティの消費MP34％減少</td>
 						<td><div id="affinity_name">仲間を求めし迷い人の記憶</div>最大MPが400以上のときヘイスト発動</td>
 					</tr>
 					<tr job="tyrant">
-						<td><div id="affinity_name">タイラント</td>
+						<td><div id="affinity_name">タイラント</div></td>
+						<td><div id="affinity_name">タイラント1</div>知性+2</td>
+						<td><div id="affinity_name">タイラント2</div>知性+2<br>精神+2</td>
+						<td><div id="affinity_name">タイラント3</div>知性+4<br>精神+4<br>素早さ+2</td>
 						<td><div id="affinity_name">ジャミングボーナス</div>敵に与える状態異常の蓄積量が13.5/22.5%増加</td>
+						<td><div id="affinity_name">タイラント4</div>知性+6<br>精神+6<br>素早さ+4</td>
 						<td><div id="affinity_name">暴君の罠</div>敵の弱点を突くと、与ダメージ量に応じてHP回復</td>
 						<td><div id="affinity_name">アブソリュートドミニオン</div>状態異常の敵への攻撃が全てクリティカル</td>
-						<td><div id="affinity_name">君臨する暴虐の記憶</div>チェインキャンセルすると、一定時間通常攻撃のMP増加量上昇<br>③効果量増加</td>
+						<td><div id="affinity_name">君臨する暴虐の記憶</div>チェインキャンセルすると、一定時間通常攻撃のMP増加量上昇<br>[DLC3]効果量増加</td>
 					</tr>
 					<tr job="wise">
-						<td><div id="affinity_name">賢者</td>
+						<td><div id="affinity_name">賢者</div></td>
+						<td><div id="affinity_name">賢者1</div>知性+2</td>
+						<td><div id="affinity_name">賢者2</div>知性+2<br>精神+2</td>
+						<td><div id="affinity_name">賢者3</div>知性+4<br>精神+6</td>
 						<td><div id="affinity_name">ソウルシールドボーナス</div>ソウルシールド成功時のMP回復量が20.3/33.8%増加</td>
+						<td><div id="affinity_name">賢者4</div>知性+8<br>精神+8</td>
 						<td><div id="affinity_name">エレメントフォース</div>ガードした際に魔法属性ダメージを受けない</td>
-						<td><div id="affinity_name">古の叡智</div>ポーションに、MP100回復・ブレイク300回復追加<br>①回復量増加</td>
-						<td><div id="affinity_name">有限の生命否定する魔王の記憶</div>状態異常中にライトブリンガーが使用可能になり、状態異常とHP回復<br>③弱体効果も回復<br>③全てのライトブリンガーで有効</td>
+						<td><div id="affinity_name">古の叡智</div>ポーションに、MP100回復・ブレイク300回復追加<br>[DLC1]回復量増加</td>
+						<td><div id="affinity_name">有限の生命否定する魔王の記憶</div>状態異常中にライトブリンガーが使用可能になり、状態異常とHP回復<br>[DLC3]弱体効果も回復<br>[DLC3]全てのライトブリンガーで有効</td>
 					</tr>
 					<tr job="summon">
-						<td><div id="affinity_name">召喚士</td>
+						<td><div id="affinity_name">召喚士</div></td>
+						<td><div id="affinity_name">召喚士1</div>力＋1</td>
+						<td><div id="affinity_name">召喚士32</div>力+1<br>知性+1</td>
+						<td><div id="affinity_name">召喚士</div>力+2<br>知性+3<br>精神+2<br>素早さ+1</td>
 						<td><div id="affinity_name">チェインキャンセルボーナス</div>チェインキャンセルすると、最大MP増加</td>
+						<td><div id="affinity_name">召喚士4</div>力+1<br>知性+2<br>精神+1<br>素早さ+1</td>
 						<td><div id="affinity_name">ミストの加護</div>継続してMP消費する場合に必要MP減少</td>
 						<td><div id="affinity_name">トランスソウル</div>ソウルシールド成功時、発動中の強化効果時間を延長</td>
 						<td><div id="affinity_name">祈りを捧げた召喚士の記憶</div>メイン幻獣の加護の効果量が上昇</td>
 					</tr>
 					<tr job="gambler">
-						<td><div id="affinity_name">ギャンブラー</td>
+						<td><div id="affinity_name">ギャンブラー</div></td>
+						<td><div id="affinity_name">ギャンブラー1</div>幸運+1</td>
+						<td><div id="affinity_name">ギャンブラー2</div>幸運+1<br>知性+1</td>
+						<td><div id="affinity_name">ギャンブラー3</div>幸運+2<br>知性+2<br>素早さ+1</td>
 						<td><div id="affinity_name">イカサマのダイス</div>チェインキャンセルするとMPランダム回復</td>
+						<td><div id="affinity_name">ギャンブラー4</div>幸運+3<br>知性+3<br>素早さ+1</td>
 						<td><div id="affinity_name">強運</div>幸運に応じて時々ダメージを無効化</td>
 						<td><div id="affinity_name">ラッキーパンチ</div>幸運に応じて全ての攻撃が稀にクリティカル</td>
 						<td><div id="affinity_name">友の翼蘇らせし勝負師の記憶</div>MPが少ないほど与ブレイク増加</td>
 					</tr>
 					<tr job="wheel">
-						<td><div id="affinity_name">輪廻の戦士</td>
+						<td><div id="affinity_name">輪廻の戦士</div></td>
+						<td><div id="affinity_name">輪廻の戦士1</div>力+2</td>
+						<td><div id="affinity_name">輪廻の戦士2</div>力+2<br>体力+2</td>
+						<td><div id="affinity_name">輪廻の戦士3</div>力+4<br>体力+4<br>知性+2</td>
 						<td><div id="affinity_name">ストレンジャーボーナス</div>アビリティのブレイク上限ダメージが13.5/22.5%増加</td>
+						<td><div id="affinity_name">輪廻の戦士4</div>力+6<br>体力+6<br>知性+4</td>
 						<td><div id="affinity_name">猛者の魂</div>MP上限が200未満だと、MP上限が秒間10増加</td>
-						<td><div id="affinity_name">神罰</div>ライトブリンガー中にソウルバーストでライトブリンガーの効果時間4秒延長</div>カオスブリンガーは0.6秒延長<br>③延長時間増加</td>
-						<td><div id="affinity_name">混沌の中を歩み続ける者の記憶</div>ライトブリンガーの発動時に、ソウルシールド成功時の効果発動<br>③全てのライトブリンガーで有効</td>
+						<td><div id="affinity_name">神罰</div>ライトブリンガー中にソウルバーストでライトブリンガーの効果時間4秒延長</div>カオスブリンガーは0.6秒延長<br>[DLC3]延長時間増加</td>
+						<td><div id="affinity_name">混沌の中を歩み続ける者の記憶</div>ライトブリンガーの発動時に、ソウルシールド成功時の効果発動<br>[DLC3]全てのライトブリンガーで有効</td>
 					</tr>
 					<tr job="blue">
-						<td><div id="affinity_name">青魔導士</td>
+						<td><div id="affinity_name">青魔導士</div></td>
+						<td><div id="affinity_name">青魔導士1</div>知性+1</td>
+						<td><div id="affinity_name">青魔導士2</div>知性+1<br>力+1</td>
+						<td><div id="affinity_name">青魔導士3</div>力+1<br>素早さ+2<br>精神+2</td>
 						<td><div id="affinity_name">エネミーアビリティボーナス</div>敵の技の与ダメージ量が増加</td>
+						<td><div id="affinity_name">青魔導士4</div>力+2<br>体力+2<br>精神+2<br>幸運+2</td>
 						<td><div id="affinity_name">ラーニング</div>ソウルシールド成功時のインスタントアビリティ数が増加</td>
 						<td><div id="affinity_name">ブルーバースト</div>敵の技の与ダメージ量に応じてMP回復</td>
-						<td><div id="affinity_name">青き血を持つ冒険者の記憶</div>物理属性与ダメージの累積で、3段階まで次のアビリティの魔法属性ダメージ増加<br>③効果量増加</td>
+						<td><div id="affinity_name">青き血を持つ冒険者の記憶</div>物理属性与ダメージの累積で、3段階まで次のアビリティの魔法属性ダメージ増加<br>[DLC3]効果量増加</td>
 					</tr>
 									</table>
 				

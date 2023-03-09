@@ -68,7 +68,8 @@ $(document).ready(function() {
         if (inputElement.val()) {
             inputElement.val('');
         } else {
-            inputElement.val('200');
+            var autoValue = target.parents('[id="value"]').find('[name="auto_value"]').val();
+            inputElement.val(autoValue);
         }
         summaryValue();
     });
@@ -134,20 +135,36 @@ function cahngeJobAvailable(job, value) {
     $('table#result [job="' + job + '"] td:nth-child(3)').attr('id', '');
     $('table#result [job="' + job + '"] td:nth-child(4)').attr('id', '');
     $('table#result [job="' + job + '"] td:nth-child(5)').attr('id', '');
+    $('table#result [job="' + job + '"] td:nth-child(6)').attr('id', '');
+    $('table#result [job="' + job + '"] td:nth-child(7)').attr('id', '');
+    $('table#result [job="' + job + '"] td:nth-child(8)').attr('id', '');
+    $('table#result [job="' + job + '"] td:nth-child(9)').attr('id', '');
 
     if (value && !value.match(/[^0-9]/)) {
 
-        if (value >= 50) {
+        if (value >= 20) {
             $('table#result [job="' + job + '"] td:nth-child(2)').attr('id', 'job_available_on');
         }
-        if (value >= 250) {
+        if (value >= 30) {
             $('table#result [job="' + job + '"] td:nth-child(3)').attr('id', 'job_available_on');
         }
-        if (value >= 400) {
+        if (value >= 80) {
             $('table#result [job="' + job + '"] td:nth-child(4)').attr('id', 'job_available_on');
         }
-        if (value >= 600) {
+        if (value >= 120) {
             $('table#result [job="' + job + '"] td:nth-child(5)').attr('id', 'job_available_on');
+        }
+        if (value >= 150) {
+            $('table#result [job="' + job + '"] td:nth-child(6)').attr('id', 'job_available_on');
+        }
+        if (value >= 250) {
+            $('table#result [job="' + job + '"] td:nth-child(7)').attr('id', 'job_available_on');
+        }
+        if (value >= 400) {
+            $('table#result [job="' + job + '"] td:nth-child(8)').attr('id', 'job_available_on');
+        }
+        if (value >= 600) {
+            $('table#result [job="' + job + '"] td:nth-child(9)').attr('id', 'job_available_on');
         }
     }
 }
@@ -213,6 +230,11 @@ function countSetNum() {
                 }
             });
             target.find('[id="set_num"]').html(setNum);
+            if (setNum > 2) {
+                target.find('[id="set_num"]').attr('over','');
+            } else {
+                target.find('[id="set_num"]').removeAttr('over');
+            }
         }
     });
 }
@@ -231,8 +253,14 @@ function saveSetting(saveName) {
         var target = $(this);
         var job = $(this).attr('job');
         var onoff = target.prop("checked");
-
         displayJobs[job] = onoff;
+    });
+
+    var autoInputValues = {};
+    $('table#value_input input[name="auto_value"]').each(function(index, element) {
+        var target = $(this);
+        var parts = target.parents('[parts]').attr('parts');
+        autoInputValues[parts] = target.val();
     });
 
     var jobValues = {};
@@ -281,6 +309,7 @@ function saveSetting(saveName) {
     
     setting[saveName] = {
         displayJobs: displayJobs,
+        autoInputValues: autoInputValues,
         jobValues: jobValues,
         affinityMarkings: affinityMarkings
     };
@@ -303,13 +332,19 @@ function loadSetting(saveName) {
         return;
     }
 
-    if(setting.displayJobs) {
+    if (setting.displayJobs) {
         for (job in setting.displayJobs) {
             $('div#job_display_switch_area input[job="' + job + '"]').prop('checked', setting.displayJobs[job]);
         }
     }
 
-    if(setting.jobValues) {
+    if (setting.autoInputValues) {
+        for (parts in setting.autoInputValues) {
+            $('table#value_input [parts="' + parts + '"] input[name="auto_value"]').val(setting.autoInputValues[parts]);
+        }
+    }
+
+    if (setting.jobValues) {
         for (job in setting.jobValues) {
             for (parts in setting.jobValues[job]) {
                 $('table#value_input tr[parts="' + parts + '"] input[job="' + job + '"]').val(setting.jobValues[job][parts]);
@@ -317,7 +352,7 @@ function loadSetting(saveName) {
         }
     }
 
-    if(setting.affinityMarkings) {
+    if (setting.affinityMarkings) {
         $('[marking="on"]').attr('marking', 'off');
         for (job in setting.affinityMarkings) {
             var affinityName = setting.affinityMarkings[job].name;
@@ -331,6 +366,10 @@ function loadSetting(saveName) {
 
 function deleteSetting(saveName) {
 
+    if (!window.confirm('delete?')) {
+        return;
+    }
+   
     var setting = getStorageSetting();
     if (!setting) {
         return;

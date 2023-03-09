@@ -88,6 +88,10 @@ table#value_input tr#summary td {
 table#value_input input[inputed="on"] {
 	background-color: aqua;
 }
+table#value_input td[over] {
+	color: yellow;
+	background-color: red;
+}
 
 
 div#result_area {
@@ -115,11 +119,26 @@ table#result tr td:nth-child(1) {
 	background-color: pink;
 }
 table#result tr:nth-child(n+2) td:nth-child(n+2) {
-	max-width: 300px;
 	height: 80px;
 	vertical-align: top;
 	cursor: pointer;
 }
+table#result tr:nth-child(n+2) td:nth-child(2),
+table#result tr:nth-child(n+2) td:nth-child(3),
+table#result tr:nth-child(n+2) td:nth-child(4),
+table#result tr:nth-child(n+2) td:nth-child(6) 
+{
+	/* max-width: 50px; */
+	/* background-color: #eeffee; */
+}
+table#result tr:nth-child(n+2) td:nth-child(5),
+table#result tr:nth-child(n+2) td:nth-child(7),
+table#result tr:nth-child(n+2) td:nth-child(8),
+table#result tr:nth-child(n+2) td:nth-child(9) 
+{
+	max-width: 300px;
+}
+
 table#result tr:nth-child(n+2) td:nth-child(n+2):hover {
     background-color: rgb(236, 245, 153);
 }
