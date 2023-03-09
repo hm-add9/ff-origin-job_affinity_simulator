@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+	<title>FFオリジン　ジョブ適性シュミレータ</title>
+	<meta charset="UTF-8" />
+	<title>幻獣の加護一覧</title>
+<style type="text/css">
+body {
+	font-size: 11px;
+}
+table {
+	border-collapse:  collapse;
+}
+th, td {
+	border:1px solid #000000;
+	white-space: nowrap;
+	min-width: 50px;
+}
+
+th {
+	color: #ffffff;
+	background-color: #333333;
+}
+
+tr[type="attack"] td:nth-child(1) {
+	color: #ffffff;
+	background-color: #ff3333;
+}
+tr[type="diffence"] td:nth-child(1) {
+	color: #ffffff;
+	background-color: #ff8800;
+}
+tr[type="speed"] td:nth-child(1) {
+	color: #ffffff;
+	background-color: #33aa33;
+}
+tr[type="magic"] td:nth-child(1) {
+	color: #ffffff;
+	background-color: #3333ff;
+}
+tr[type="attack"] td:nth-child(2) {
+	color: #000000;
+	background-color: #ffcccc;
+}
+tr[type="diffence"] td:nth-child(2) {
+	color: #000000;
+	background-color: #ffcc88;
+}
+tr[type="speed"] td:nth-child(2) {
+	color: #000000;
+	background-color: #ccffcc;
+}
+tr[type="magic"] td:nth-child(2) {
+	color: #000000;
+	background-color: #ccccff;
+}
+
+td[level="1"] {
+	color: #000000;
+	background-color: #ff0000;
+}
+td[level="2"] {
+	color: #000000;
+	background-color: #ffcccc;
+}
+td[level="3"] {
+	color: #000000;
+	background-color: #ffffff;
+}
+td[level="4"] {
+	color: #000000;
+	background-color: #ccffff;
+}
+td[level="5"] {
+	color: #000000;
+	background-color: #ccccff;
+}
+</style>
+<script src="jquery-3.6.0.min.js"></script>
+<script>
+$(document).ready(function() {
+	$('td:contains("★")').attr('level', '1');
+	$('td:contains("◎")').attr('level', '2');
+	$('td:contains("〇")').attr('level', '3');
+	$('td:contains("△")').attr('level', '4');
+	$('td:contains("✖")').attr('level', '5');
+
+	$('td:contains("HP")').attr('staus', '1');
+	$('td:contains("力")').attr('staus', '2');
+	$('td:contains("体力")').attr('staus', '3');
+	$('td:contains("知性")').attr('staus', '4');
+	$('td:contains("精神")').attr('staus', '5');
+	$('td:contains("素早さ")').attr('staus', '6');
+});
+</script>
+</head>
+
+<body>
+	<table border="1" style="width: 700px; height: 748px;">
+		<tbody>
+			<tr>
+				<th style="text-align: center;">幻獣</th>
+				<th style="text-align: center;">効果</th>
+				<th style="text-align: center;" colspan="7">％上昇ステータス</th>
+			</tr>
+			<tr type="attack">
+				<td><span>イフリート</span></td>
+				<td>通常攻撃からコンボアビリティを発動するとき、タイミングよくコンボアビリティを発動するとアビリティの威力が増加</td>
+				<td>◎HP</td><td>◎力</td><td>〇素早さ</td><td>◎体力</td><td>△知性</td><td>△精神</td><td>△幸運</td>
+			</tr>
+			<tr type="attack">
+				<td><span>オーディン</span></td>
+				<td>物理属性攻撃の与ダメージに応じて「全属性減衰」の状態異常を蓄積</td>
+				<td>〇HP</td><td>★力</td><td>◎素早さ</td><td>〇体力</td><td>〇知性</td><td>✖精神</td><td>△幸運</td>
+			</tr>
+			<tr type="attack">
+				<td><span>バハムート</span></td>
+				<td>ソウルシールド成功時に力・素早さ・体力・知性・精神・幸運が増加<br>
+					この効果は20段階まで上昇</td>
+				<td>〇HP</td><td>〇力</td><td>〇素早さ</td><td>〇体力</td><td>〇知性</td><td>〇精神</td><td>〇幸運</td>
+			</tr>
+			<tr type="diffence">
+				<td><span>カーバンクル</span></td>
+				<td>ジャストガード成功後のコンボスロットに、他のスロットで使用可能なすべてのアビリティを設定できる<br>
+					また、ジャストガード成功時にMPを回復</td>
+				<td>△HP</td><td>✖力</td><td>◎素早さ</td><td>〇体力</td><td>△知性</td><td>◎精神</td><td>★幸運</td>
+			</tr>
+			<tr type="diffence">
+				<td><span>タイタン</span></td>
+				<td>敵から狙われている時間に応じて「一定量被ダメージを無効化する」強化効果が蓄積される</td>
+				<td>★HP</td><td>〇力</td><td>△素早さ</td><td>◎体力</td><td>△知性</td><td>△精神</td><td>〇幸運</td>
+			</tr>
+			<tr type="diffence">
+				<td><span>アレクサンダー</span></td>
+				<td>ジャストガード成功時に、敵に「力・素早さ・体力・知性・精神・幸運が減少する」弱体効果を付与</td>
+				<td>◎HP</td><td>◎力</td><td>✖素早さ</td><td>★体力</td><td>✖知性</td><td>◎精神</td><td>△幸運</td>
+			</tr>
+			<tr type="speed">
+				<td><span>シルフ</span></td>
+				<td>攻撃中に回避できるタイミングが早くなり、回避するとブレイクを一定量回復</td>
+				<td>✖HP</td><td>△力</td><td>◎素早さ</td><td>△体力</td><td>◎知性</td><td>◎精神</td><td>◎幸運</td>
+			</tr>
+			<tr type="speed">
+				<td><span>シヴァ</span></td>
+				<td>クリティカル攻撃の与ダメージに応じて「遅延」の状態異常を蓄積</td>
+				<td>△HP</td><td>△力</td><td>◎素早さ</td><td>△体力</td><td>◎知性</td><td>〇精神</td><td>◎幸運</td>
+			</tr>
+			<tr type="speed">
+				<td><span>フェンリル</span></td>
+				<td>敵の攻撃を無敵時間で回避すると、次のアビリティのMP消費量が減少し、クリティカルになる</td>
+				<td>〇HP</td><td>〇力</td><td>★素早さ</td><td>△体力</td><td>◎知性</td><td>△精神</td><td>✖幸運</td>
+			</tr>
+			<tr type="magic">
+				<td><span>ラムウ</span></td>
+				<td>通常攻撃のMP回復量がMP上限の値に応じて増加<br>
+					また、コンボアビリティの与ダメージに応じて「麻痺」の状態異常を蓄積</td>
+				<td>△HP</td><td>〇力</td><td>〇素早さ</td><td>✖体力</td><td>★知性</td><td>◎精神</td><td>〇幸運</td>
+			</tr>
+			<tr type="magic">
+				<td><span>リヴァイアサン</span></td>
+				<td>ソウルシールド、ソウルバーストにおけるMP上限増加量・MP回復量が増加</td>
+				<td>〇HP</td><td>〇力</td><td>△素早さ</td><td>◎体力</td><td>〇知性</td><td>〇精神</td><td>〇幸運</td>
+			</tr>
+			<tr type="magic">
+				<td><span>フェニックス</span></td>
+				<td>仲間を救援する際にポーションを消費しなくなる<br>
+					また、攻撃の与ダメージが一定量累積すると「死亡時、一度だけ復活する」効果を付与</td>
+				<td>◎HP</td><td>△力</td><td>△素早さ</td><td>〇体力</td><td>〇知性</td><td>★精神</td><td>△幸運</td>
+			</tr>
+		</tbody>
+	</table>
+
+</body>
